@@ -27,9 +27,12 @@ class Landing extends Component {
                     <td>{subj2}</td>
                     <td>{subj3}</td>
                 </tr>
+                
             )
         })
     }
+
+    
 
     render() {
         return (

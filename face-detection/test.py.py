@@ -1,16 +1,8 @@
 import numpy as np
 import cv2
 import pickle
-import psycopg2
-def insert_data():
-  conn = psycopg2.connect(dbname = "studentdb", user="postgres", password="ashwin", host="localhost", port="5432")
-  cur = conn.cursor()
-  cur.execute('''UPDATE attendance SET s1=100 WHERE rollno=14;''')
-  conn.commit()
-  conn.close()
 
-
-face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
+face_cascade = cv2.CascadeClassifier('C:\\Users\\bhati\\projects\\snr-project\\face-detection\\haarcascade_frontalface_alt2.xml')
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read("trainner.yml")
 
@@ -41,8 +33,6 @@ while(True):
             color = (255, 255, 255)
             stroke = 2
             cv2.putText(frame, name, (x, y), font, 1, color, stroke, cv2.LINE_AA)
-            if name is "shekar" or name is "ashwin":
-                insert_data()
         else:
             cv2.putText(frame, 'unknown', (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
         img_item = "4.png"

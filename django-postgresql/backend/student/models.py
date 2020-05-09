@@ -6,9 +6,11 @@ class Student(models.Model) :
     subj1 = models.FloatField()
     subj2 = models.FloatField()
     subj3 = models.FloatField()
-    subj1_att = models.FloatField(null=True)
-    subj2_att = models.FloatField(null=True)
-    subj3_att = models.FloatField(null=True)
+    class_att_subj1 = models.IntegerField()
+    class_att_subj2 = models.IntegerField()
+    class_att_subj3 = models.IntegerField()
 
     def _str_(self):
         return self.name
+
+updatesubj3([True, True, False, True, False, True, False, True, False])

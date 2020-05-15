@@ -1,0 +1,77 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+     <title>Attendence</title>
+     <style>
+        body {
+            margin: 0;
+            margin-bottom:2em;
+            padding: 0;
+            text-align: center;
+        }
+
+        p {
+            font-family: 'Aclonica';
+            font-size: 40px;
+        }
+
+        .heading {
+           text-align: center;
+        }
+
+        table {
+            margin-left: 13em;
+            width: 60em;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 2px solid black;
+        }
+
+        .table {
+            padding-left: 13em;
+        }
+     </style>
+ </head>
+
+ <body>
+     <div className="wrapper ">
+         <div className="heading">
+             <p>Attendence</p>
+         </div>
+         <div className="table">
+             <table className="centered striped">
+                 <thead>
+                     <tr>
+                         <th>Roll No</th>
+                         <th>Name</th>
+                         <th>Subj-1</th>
+                         <th>Subj-2</th>
+                         <th>Subj-3</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                    {% for student in allStudent %} 
+                        <tr>
+                            <td>{{ student.id }}</td>
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.subj1 }}</td>
+                            <td>{{ student.subj2 }}</td>
+                            <td>{{ student.subj3 }}</td>
+                        </tr>
+                    {% endfor %}
+                 </tbody>
+             </table>
+         </div>
+     </div>
+ </body>
+
+ </html>

@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <title>Attendence</title>
+    <style>
+        img{
+            margin-top: 2em;
+            height:15em;
+            width:auto;
+        }
+        body{
+            margin-top:6em;
+            font-family: 'Acme';
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col l7 center">
+            <h4>Detct face using webcam</h4>
+            <a href="{% url 'webcam' %}"><img src="{% static "face-det.png" %}"></a>
+        </div>
+        <div class="col l5">
+            <h4>View Attendence</h4>
+            <a href="{% url 'attendence' %}"><img src="{% static "attendence.jpg" %}"></a>
+        </div>
+    </div>
+</body>
+</html>

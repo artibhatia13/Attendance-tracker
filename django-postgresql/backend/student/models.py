@@ -13,4 +13,4 @@ class Student(models.Model) :
     def _str_(self):
         return self.name
 
-updatesubj3([True, True, False, True, False, True, False, True, False])
+

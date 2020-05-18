@@ -1,21 +1,25 @@
 from django.shortcuts import render
 from .models import Student
+from .update import updatesubj1, updatesubj2, updatesubj3
 
 import numpy as np
 import cv2
 import pickle
 
 import os
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def index(request):
+    return render(request, 'index.html')
+
+def webcam(request):
+    a=0    
     face_cascade = cv2.CascadeClassifier(BASE_DIR +'/ml/haarcascade_frontalface_alt2.xml')
     recognizer = cv2.face.LBPHFaceRecognizer_create()
     recognizer.read(BASE_DIR +"/ml/trainner.yml")
 
     labels = {"person_name" : 1}
-    with open("labels.pickle",  'rb') as f:
+    with open(BASE_DIR +"/ml/labels.pickle",  'rb') as f:
         og_labels = pickle.load(f)
         labels = {v:k for k,v in og_labels.items()}
     cap = cv2.VideoCapture(0)
@@ -32,7 +36,10 @@ def index(request):
             id_, conf = recognizer.predict(roi_gray)
             if conf>=36: #and conf<=65:
                 print(id_)
-                print(labels[id_])
+                print(labels[id_])                 
+                if a==0 :
+                    updatesubj2(3)                
+                    a=1
 
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 name = labels[id_]
@@ -55,13 +62,11 @@ def index(request):
 
     cap.release()
     cv2.destroyAllWindows()
-    return render(request, 'index.html')
 
-def webcam(request):
     return render(request, 'webcam.html')
 
-def attendence(request):
+def attendance(request):
     allStudent = Student.objects.order_by('id')
     context = {'allStudent':allStudent}
 
-    return render(request, 'attendence.html', context)
+    return render(request, 'attendance.html', context)

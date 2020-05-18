@@ -1,5 +1,4 @@
 from django.db import models
-from .update import updatesubj1, updatesubj2, updatesubj3
 
 class Student(models.Model) :
     name = models.CharField(max_length=30)

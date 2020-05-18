@@ -6,5 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('webcam/', views.webcam, name='webcam'),
-    path('attendence/', views.attendence, name='attendence')
+    path('attendance/', views.attendance, name='attendance')
 ]

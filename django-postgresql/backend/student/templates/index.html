@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
-    <title>Attendence</title>
+    <title>Attendance</title>
     <style>
         img{
             margin-top: 2em;
@@ -23,12 +23,12 @@
 <body>
     <div class="row">
         <div class="col l7 center">
-            <h4>Detct face using webcam</h4>
+            <h4>Detect face using webcam</h4>
             <a href="{% url 'webcam' %}"><img src="{% static "face-det.png" %}"></a>
         </div>
         <div class="col l5">
-            <h4>View Attendence</h4>
-            <a href="{% url 'attendence' %}"><img src="{% static "attendence.jpg" %}"></a>
+            <h4>View Attendance</h4>
+            <a href="{% url 'attendance' %}"><img src="{% static "attendance.jpg" %}"></a>
         </div>
     </div>
 </body>

@@ -13,7 +13,8 @@ def index(request):
     return render(request, 'index.html')
 
 def webcam(request):
-    a=0    
+    a=''
+    b=''    
     face_cascade = cv2.CascadeClassifier(BASE_DIR +'/ml/haarcascade_frontalface_alt2.xml')
     recognizer = cv2.face.LBPHFaceRecognizer_create()
     recognizer.read(BASE_DIR +"/ml/trainner.yml")
@@ -36,10 +37,12 @@ def webcam(request):
             id_, conf = recognizer.predict(roi_gray)
             if conf>=36: #and conf<=65:
                 print(id_)
-                print(labels[id_])                 
-                if a==0 :
-                    updatesubj2(3)                
-                    a=1
+                print(labels[id_])
+                b = labels[id_]                 
+                if b != a :
+                    print('calling update')
+                    updatesubj2(b)                
+                    a=b
 
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 name = labels[id_]
